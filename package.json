@@ -1,0 +1,12 @@
+{
+  "name": "nft-sale",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "menezesphill",
+  "license": "MIT",
+  "dependencies": {
+    "@grexie/signable": "^0.1.6",
+    "@openzeppelin/contracts": "^4.5.0",
+    "chai": "^4.3.6"
+  }
+}
