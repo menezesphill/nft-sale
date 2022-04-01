@@ -27,7 +27,7 @@ contract GenNFT is
   }
 
   string private _hiddenBaseURI;
-  string private _hiddenExtension;
+  //string private _hiddenExtension;
   string private _revealBaseURI;
   string private _revealExtension;
   bool private _revealed;
@@ -50,7 +50,7 @@ contract GenNFT is
     uint256 whitelistSaleTime_,
     uint256 publicSaleTime_,
     string memory hiddenBaseURI_,
-    string memory hiddenExtension_,
+    //string memory hiddenExtension_,
     string memory revealBaseURI_,
     string memory revealExtension_,
     bool revealed_,
@@ -64,7 +64,7 @@ contract GenNFT is
     _whitelistSaleTime = whitelistSaleTime_;
     _publicSaleTime = publicSaleTime_;
     _hiddenBaseURI = hiddenBaseURI_;
-    _hiddenExtension = hiddenExtension_;
+    //_hiddenExtension = hiddenExtension_;
     _revealBaseURI = revealBaseURI_;
     _revealExtension = revealExtension_;
     _revealed = revealed_;
@@ -181,7 +181,8 @@ contract GenNFT is
     } else {
       return
         string(
-          abi.encodePacked(_hiddenBaseURI, tokenId.toString(), _hiddenExtension)
+          abi.encodePacked(_hiddenBaseURI)
+          //abi.encodePacked(_hiddenBaseURI, tokenId.toString(), _hiddenExtension)
         );
     }
   }
@@ -230,12 +231,19 @@ contract GenNFT is
     _maxMintAmount = maxMintAmount_;
   }
 
-  function setHiddenURI(string memory baseURI, string memory extension)
+/*   function setHiddenURI(string memory baseURI, string memory extension)
     external
     onlyOwner
   {
     _hiddenBaseURI = baseURI;
     _hiddenExtension = extension;
+  } */
+
+  function setHiddenURI(string memory baseURI)
+    external
+    onlyOwner
+  {
+    _hiddenBaseURI = baseURI;
   }
 
   function reveal(string memory baseURI, string memory extension)
